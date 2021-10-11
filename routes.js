@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const dados = require('./dados')
 
-
 router.get('/weapon/random', function(req,res){
     var number = Math.floor(Math.random(dados.length)*100)
 
@@ -14,6 +13,7 @@ router.get('/weapon/random', function(req,res){
     )
 
 })
+
 router.get('/weapon/:component?/:subcomponent?', function(req,res){
     var component = req.params.component
     var subcomponent = req.params.subcomponent
@@ -21,6 +21,7 @@ router.get('/weapon/:component?/:subcomponent?', function(req,res){
     var limit = req.query.limit || dados.length
     var order = req.query.order ? true : false
     var response = [];
+
     for(var i = 0; i<limit; i++){
         response.push(dados[i])
     }
@@ -46,6 +47,7 @@ router.get('/weapon/:component?/:subcomponent?', function(req,res){
             response = response.filter((weapon) => weapon[component] == true)
         }
     }
+
     if(order){
         if(component == "aotaOnly" || component == "obtained" || component == "attackTypes" || component == "scale") {
             component = "name";
@@ -73,13 +75,13 @@ router.get('/weapon/:component?/:subcomponent?', function(req,res){
             })
         }
     }
+
     res.json(
         {
             "Tamanho da lista":response.length,
             "Resultado" : response
         }
     )
-
 })
 
 
