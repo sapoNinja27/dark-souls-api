@@ -1,0 +1,14 @@
+{
+  "name": "darksoulsapi",
+  "version": "1.0.0",
+  "description": "recurso para listar armas de dark souls",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "joão pedro",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
