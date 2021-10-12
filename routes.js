@@ -41,7 +41,7 @@ router.get('/weapon/:component?/:subcomponent?', function(req,res){
             response = response.filter((weapon) => weapon[component] <= value)
         }
         if(component == "obtained" || component == "attackTypes" ||component == "name") {
-            response = response.filter((weapon) => JSON.stringify(weapon[component]).includes(value))
+            response = response.filter((weapon) => JSON.stringify(weapon[component]).toLowerCase().includes(value.toLowerCase()))
         }
         if(component == "aotaOnly") {
             response = response.filter((weapon) => weapon[component] == true)
