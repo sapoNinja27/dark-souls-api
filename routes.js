@@ -7,6 +7,8 @@ router.get('/weapon/random', function(req,res){
 
     res.json(
         {
+            
+            "Author": "João Pedro",
             "Arma ": number,
             "Descrição" : dados[number]
         }
@@ -78,6 +80,7 @@ router.get('/weapon/:component?/:subcomponent?', function(req,res){
 
     res.json(
         {
+            "Author": "João Pedro",
             "Tamanho da lista":response.length,
             "Resultado" : response
         }
