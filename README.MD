@@ -1,4 +1,4 @@
-*Caminho root https://dark-souls-weapon.herokuapp.com/api/weapon*
+*Caminho root https://localhost:8080/api/weapon*
 
 Retorna uma lista de armas de dark souls completa
 
