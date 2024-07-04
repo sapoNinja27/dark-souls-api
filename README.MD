@@ -4,6 +4,12 @@
 
 The Dark Souls Weapons API is a RESTful web service designed to provide detailed information about weapons from the Dark Souls series. This API allows developers to access data about various weapons, including their attributes, descriptions, and usage details, enabling the creation of apps, websites, or tools that enhance the Dark Souls gaming experience.
 
+## Run
+
+```bash
+npm start
+```
+
 ## Routes
 
 *Root https://localhost:8080/api/weapon*
