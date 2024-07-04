@@ -1,21 +1,68 @@
-*Caminho root https://localhost:8080/api/weapon*
+# Dark Souls Api
 
-Retorna uma lista de armas de dark souls completa
+## Project Description:
 
-*Parametros:*
+The Dark Souls Weapons API is a RESTful web service designed to provide detailed information about weapons from the Dark Souls series. This API allows developers to access data about various weapons, including their attributes, descriptions, and usage details, enabling the creation of apps, websites, or tools that enhance the Dark Souls gaming experience.
 
-       Nome do componente e valor a buscar, se o componente desejado for um objeto, então é nescessario informar o subcomponente
-       Ex: /name?value=Dagger -> retorna todas as adagas, /atl/physical?value=100 -> retorna todas as armas com ataque fisico maior que 100
-       Obs: Alguns componentes como aotaOnly não é nescessario informar valor.
-       O endereço aceita todos os componentes e subcomponentes das armas, e responde de acordo com a logica por tras dele.
-       Ex: Ao buscar por determinado peso vai retornar as armas com peso menor do que o passado por parametro, já que é de se esperar que o peso que o jogador esteja
-       procurando seja o maximo que caiba em sua build, ja ao buscar por parametros ofensivos a lista vai retornar considerando o parametro passado como o minimo
+## Routes
+
+*Root https://localhost:8080/api/weapon*
+
+Retrieve a complete list of weapons from Dark Souls
+
+## Endpoint Structure:
+
+```javascript
+/{component}?value={search_value}
+```
+
+
+## Usage Examples:
+
+```javascript
+/name?value=Dagger 
+```
+Returns all daggers.
+```javascript
+/atl/physical?value=100 
+```
+Returns all weapons with physical attack greater than 100.
+
+### Notes:
+
+For some components like aotaOnly, specifying a value is not required.
+The endpoint accepts all components and subcomponents of weapons, responding based on its internal logic.
+When searching by weight, it returns weapons with weight less than the parameter value, as players typically seek the maximum weight fitting their build.
+When searching by offensive parameters, the list returns weapons considering the passed parameter as the minimum requirement.
        
-*Filtros:*
+## Parameters
 
-       limit: define o limite do retorno passando um value
-       order: vai ordenar a lista de acordo com o parametro indicado no value, se não for possivel vai ordenar pelo nome
++ Limit Parameter
 
-*Outras rotas*
+Define the limit of items returned by specifying a numerical value.
 
-       /random: Retorna uma arma aleatoria
+Example:
+
+```javascript
+/weapons?limit=10
+```
+
+This endpoint will return a maximum of 10 weapons.
+
++ Order Parameter
+
+Orders the list based on the specified value. If ordering by the given parameter is not possible, it defaults to ordering by name.
+
+Example:
+
+```javascript
+/weapons?order=physical
+```
+This endpoint will order the weapons list by physical attack. If a weapon lacks a physical attack value, it will sort by name.
+
+*Other*
+
+```javascript
+ /weapons/random
+ ```
+This endpoint retrieves a random weapon, useful for scenarios such as randomized gameplay runs.
